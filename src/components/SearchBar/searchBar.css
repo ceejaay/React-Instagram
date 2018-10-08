@@ -3,12 +3,45 @@
 
 
 .searchbar {
-  background: lightgray;
   display: flex;
+  border-bottom: 1px solid lightgray;
   justify-content: space-between;
-  height: 50px;
+  align-items: center;
   width: 100%;
 }
-.searchbar img {
-  width: 5%;
+.searchbar .instagram-text {
+  font-size: 25px;
+  margin: 0;
+}
+.searchbar p{
+ margin: 0;
+}
+.searchbar form{
+  margin: 0 15% 0 0;
+}
+
+.icons {
+  align-items: center;
+  width: 15%;
+}
+.searchbar .icons{
+ display: flex;
+ margin: 0;
+}
+.searchbar .icons p{
+ font-size: 25px;
+ margin: 0 5%;
+
+}
+
+.searchbar .logoandtext {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 50px;
+
+}
+.searchbar .logoandtext p{
+  margin-left: 5%;
+
 }

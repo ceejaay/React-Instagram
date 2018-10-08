@@ -1,8 +1,50 @@
 .postcontainer {
-  width: 30%;
+  width: 40%;
+  margin: 30px 30%;
 
 }
+
 
 .postcontainer img {
-  width: 10%;
+  width: 85%;
 }
+.postcontainer .thumbnail {
+  height: 5%;
+  width: 5%;
+  margin-right: 5%;
+  border-radius: 24px;
+}
+
+.postcontainer header {
+  display: flex;
+  width: 78%;
+  font-weight: bold;
+  align-items: center;
+  padding-left: 6.5%;
+  border: 1px lightgray solid;
+  margin-left: 7.5%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 15%;
+  margin: 10px 0 10px 6.5%;
+}
+.footer-icons p {
+  margin: 0 2%;
+  font-size: 14px;
+}
+
+.footer-icons .icon {
+  font-size: 24px;
+}
+

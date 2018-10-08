@@ -3,18 +3,22 @@ import './searchBar.css'
 const SearchBar = props => {
   return (
       <div className='searchbar'>
+        <div className='logoandtext'>
         <img
-          alt="Instagram logo"
-          src='./instagram_icon.png'
-        />
-        <p>Instagram</p>
+            alt="Instagram logo"
+            src='./instagram_icon.png'
+          />
+          <p className='instagram-text'>Instagram</p>
+        </div>
         <form>
-          <input></input>
-          <button>Search</button>
+          <input placeholder='              search'>
+          </input>
         </form>
-        <p>Compass</p>
-        <p>heart</p>
-        <p>Person</p>
+        <div className='icons'>
+          <p>◎</p>
+          <p className='heartIcon'>♡</p>
+          <p>☺︎</p>
+        </div>
       </div>
       );
 };

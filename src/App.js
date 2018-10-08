@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import dummyData from './dummy-data.js';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar'
@@ -20,5 +21,9 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  dummyData: PropTypes.arrayOf(PropTypes.object)
 }
 export default App;
