@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from './dummy-data.js';
+import dummyData from './dummy-data.js';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar'
 import PostContainer from './components/PostContainer/PostContainer';
@@ -7,19 +7,18 @@ import PostContainer from './components/PostContainer/PostContainer';
 class App extends Component {
   constructor() {
     super();
-    this.state = [
-      data: data,
-    ]
+    this.state = {
+      dummyData: dummyData
+    }
   }
 
   render() {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer />
+        <PostContainer dummyData={this.state.dummyData}/>
       </div>
     );
   }
 }
-
 export default App;

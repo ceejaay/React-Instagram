@@ -2,7 +2,9 @@ import React from 'react';
 const CommentSection = props => {
   return (
       <div>
-        here's the comment section
+      {props.comments.map((comment, index)=>{
+        return <p key={index}>{comment.text}</p>
+      })}
         <div>
           <form>
             <input placeholder='add a comment'></input>

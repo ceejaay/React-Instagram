@@ -3,21 +3,20 @@ import CommentSection from '../CommentSection/CommentSection'
 const PostContainer = props => {
   return (
       <div>
-        <div className='postHeadline'>
+      {props.dummyData.map((item, index)=>{
+        return <div  className='postcontainer' key={index}>
+          <p>{item.username}</p>
+          <p>{item.likes}</p>
+          <p>{item.timestamp}</p>
           <img
-            alt="user icon"
+            src={item.imageUrl}
+            alt={item.username}
           />
-          <p>Username</p>
+          <CommentSection comments={item.comments}/>
         </div>
-        <div className='photo'>
-          <img
-            alt='photo'
-          />
-          <p>heart icon</p>
-          <p>comment icon</p>
-          <p>Eleventy-billion likes</p>
-        </div>
-        < CommentSection />
+
+
+      })}
       </div>
       );
 };

@@ -1,0 +1,14 @@
+
+
+
+
+.searchbar {
+  background: lightgray;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+}
+.searchbar img {
+  width: 5%;
+}

@@ -1,19 +1,20 @@
 import React from 'react';
+import './searchBar.css'
 const SearchBar = props => {
   return (
-      <div>
+      <div className='searchbar'>
         <img
           alt="Instagram logo"
-
+          src='./instagram_icon.png'
         />
         <p>Instagram</p>
         <form>
           <input></input>
           <button>Search</button>
         </form>
-        <p>Compass icon</p>
-        <p>heart icon</p>
-        <p>Person icon</p>
+        <p>Compass</p>
+        <p>heart</p>
+        <p>Person</p>
       </div>
       );
 };
