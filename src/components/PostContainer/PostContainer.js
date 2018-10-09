@@ -33,7 +33,7 @@ const PostContainer = props => {
               addNewComment={props.addNewComment}
               comments={item.comments} 
               timestamp={item.timestamp}
-              newComment={props.commentInput}
+              newComment={item.commentInput}
             />
           </footer>
         </div>

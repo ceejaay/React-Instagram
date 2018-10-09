@@ -38,9 +38,8 @@ class App extends Component {
    }
 
   changeHandler(event) {
-    // this.setState({commentInput: event.target.commentInput})
+     this.setState({commentInput: event.target.value})
       console.log(event.target.value);
-
   }
 }
 
