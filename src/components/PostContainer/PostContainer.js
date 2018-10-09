@@ -8,7 +8,8 @@ const PostContainer = props => {
   return (
     <div timestamp={props.timestamp}>
       {props.dummyData.map((item, index)=>{
-        return <div  className='postcontainer' key={index}>
+        return <div
+          className='postcontainer' key={index}>
           <header>
             <img
               className='thumbnail'
@@ -23,13 +24,16 @@ const PostContainer = props => {
           />
           <footer>
             <div className='footer-icons'>
-            <p className='icon'>♡</p>
-            <p className='icon'>💬</p>
+            <p>H</p>
+            <p>C</p>
             <p>{item.likes} likes</p>
             </div>
             <CommentSection 
+              changeHandler={props.changeHandler}
+              addNewComment={props.addNewComment}
               comments={item.comments} 
               timestamp={item.timestamp}
+              newComment={props.commentInput}
             />
           </footer>
         </div>
@@ -41,6 +45,9 @@ const PostContainer = props => {
 };
 PostContainer.propTypes = {
  dummyData: PropTypes.arrayOf(PropTypes.object),
+}
+
+PostContainer.propTypes = {
 }
 
 export default PostContainer;

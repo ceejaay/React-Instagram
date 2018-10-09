@@ -15,9 +15,9 @@ const SearchBar = props => {
           </input>
         </form>
         <div className='icons'>
-          <p>◎</p>
-          <p className='heartIcon'>♡</p>
-          <p>☺︎</p>
+          <p>compass</p>
+          <p className='heartIcon'>heart</p>
+          <p>smiley</p>
         </div>
       </div>
       );

@@ -9,17 +9,38 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      dummyData: dummyData
+      dummyData: [], 
+      commentInput: ''
     }
+  }
+
+  componentDidMount() {
+    this.setState({dummyData: dummyData })
   }
 
   render() {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer dummyData={this.state.dummyData}/>
+        <PostContainer 
+          changeHandler={this.changeHandler}
+          commentInput={this.state.commentInput}
+          dummyData={this.state.dummyData}
+          addNewComment={this.addNewComment}
+        />
       </div>
     );
+  }
+
+  addNewComment(event, index){
+    // console.log(event)
+
+   }
+
+  changeHandler(event) {
+    // this.setState({commentInput: event.target.commentInput})
+      console.log(event.target.value);
+
   }
 }
 
