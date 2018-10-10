@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      dummyData: [], 
+      dummyData: [],
       commentInput: ''
     }
   }
@@ -23,23 +23,31 @@ class App extends Component {
       <div className="App">
         <SearchBar />
         <PostContainer 
-          changeHandler={this.changeHandler}
-          commentInput={this.state.commentInput}
           dummyData={this.state.dummyData}
           addNewComment={this.addNewComment}
+          changeHandler={this.changeHandler}
+          commentInput={this.state.commentInput}
         />
       </div>
     );
   }
 
-  addNewComment(event, index){
-    // console.log(event)
 
-   }
+  addNewComment = (event, targetUserName, comment) => {
+      event.preventDefault();
+       const newData =  this.state.dummyData.map((item)=>{
+          if(targetUserName === item.username) {
+            return {...item, comments: [...item.comments, {text: comment, username: 'Chad'}]}
+          } else {
+            return item;
+          }
+        })
+      this.setState({dummyData: newData})
+  }
 
-  changeHandler(event) {
+  changeHandler = (event)  => {
      this.setState({commentInput: event.target.value})
-      console.log(event.target.value);
+     // console.log(event.target.value);
   }
 }
 

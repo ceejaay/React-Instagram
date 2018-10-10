@@ -1,53 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection' 
 
 import './postContainer.css'
 
 const PostContainer = props => {
   return (
-    <div timestamp={props.timestamp}>
-      {props.dummyData.map((item, index)=>{
-        return <div
-          className='postcontainer' key={index}>
+    <div className='postcontainer'>
+     {props.dummyData.map((item)=>{
+        return<div key={item.username}>
           <header>
-            <img
-              className='thumbnail'
-              src={item.thumbnailUrl}
-              alt='user thumbnail'
-            />
+            <img className='thumbnail' src={item.thumbnailUrl} />
             <p>{item.username}</p>
           </header>
-          <img
-            src={item.imageUrl}
-            alt={item.username}
+          <div>
+            <img src={item.imageUrl} alt={item.username} />
+          </div>
+          <CommentSection
+             comments={item.comments}
+             username={item.username}
+             changeHandler={props.changeHandler}
+             commentInput={props.commentInput}
+             addNewComment={props.addNewComment}
           />
           <footer>
-            <div className='footer-icons'>
-            <p>H</p>
-            <p>C</p>
-            <p>{item.likes} likes</p>
-            </div>
-            <CommentSection 
-              changeHandler={props.changeHandler}
-              addNewComment={props.addNewComment}
-              comments={item.comments} 
-              timestamp={item.timestamp}
-              newComment={item.commentInput}
-            />
+            <p className='footer-icons'>heart</p>
+            <p className='footer-icons'>comment</p>
+            <p className='footer-icons'>{item.likes}</p>
           </footer>
         </div>
-
-
       })}
     </div>
   );
 };
-PostContainer.propTypes = {
- dummyData: PropTypes.arrayOf(PropTypes.object),
-}
-
-PostContainer.propTypes = {
-}
 
 export default PostContainer;

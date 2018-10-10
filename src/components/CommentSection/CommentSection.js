@@ -1,35 +1,46 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import './commentSection.css'
-const CommentSection = props => {
+class CommentSection extends React.Component {
+  constructor(props) {
+    super(props)
+      this.state = {
+        commentInput: ''
+      }
+
+  }
+  
+  changeHandler =(event) => {
+    this.setState({commentInput: event.target.value})
+
+  }
+
+ addComment = (event) => {
+   this.props.addNewComment(event, this.props.username, this.state.commentInput)
+     this.setState({commentInput: ''})
+ }
+
+  render() {
   return (
       <div className='commentsection'>
-      {props.comments.map((comment, index)=>{
-        return ( 
-          <div key={index} className='comment'>
-            <p className='commentUsername'>{comment.username}</p>
-            <p>{comment.text}</p>
-          </div>
-        )
-         })}
-        <div>
-        <div
-        className='timestamp'>{props.timestamp}
+      {this.props.comments.map((comment, idx)=>{
+        return<div className='commentsection' key={idx}><p className='commentUsername'>{comment.username}</p><p className='comment'>{comment.text}</p>
         </div>
-          <form>
-            <input 
-              type='text' 
-              onChange={props.changeHandler} 
-              placeholder='add a comment'>
-              {console.log(props.commentInput)}
-            </input>
-            <button onClick={props.addNewComment}>...</button>
-          </form>
-        </div>
+      })}
+      <form onSubmit={this.addComment}>
+        <input value={this.state.commentInput} onChange={this.changeHandler}></input>
+        <button  onClick={this.addComment}></button>
+      </form>
+
       </div>
       );
 
-};
+  }
+
+
+
+}
+
 
 // CommentSection.propTypes = {
 //   comments: PropTypes.shape({
