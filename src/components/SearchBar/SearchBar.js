@@ -1,7 +1,26 @@
 import React from 'react';
 import './searchBar.css'
-const SearchBar = props => {
-  return (
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      searchText: '',
+    }
+  }
+
+  changeHandler = (event) => {
+    this.setState({searchText: event.target.value})
+      // console.log(event.target.value)
+  }
+
+  findPost = (value) => {
+    // this.props.findPost(event, event.target.value)
+    console.log(value)
+
+  }
+
+  render() {
+    return(
       <div className='searchbar'>
         <div className='logoandtext'>
         <img
@@ -10,7 +29,8 @@ const SearchBar = props => {
           />
           <p className='instagram-text'>Instagram</p>
         </div>
-        <form>
+        <form onChange={this.changeHandler} onSubmit={() => this.findPost(this.searchText)}>
+
           <input placeholder='              search'>
           </input>
         </form>
@@ -20,7 +40,9 @@ const SearchBar = props => {
           <p>smiley</p>
         </div>
       </div>
-      );
-};
+    )
+  }
+}
+
 
 export default SearchBar;

@@ -16,12 +16,31 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({dummyData: dummyData })
+    this.hydrateWithLocalStorage();
+  }
+
+
+  hydrateWithLocalStorage() {
+    for(let key in this.state) {
+      if(localStorage.hasOwnProperty(key)){
+
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({[key]: value})
+        } catch (e) {
+          this.setState({[key]: value})
+        }
+      }
+    }
   }
 
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar  
+          state={this.state}
+          changeHandler={this.changeHandler} findPost={this.findPost}/>
         <PostContainer 
           dummyData={this.state.dummyData}
           addNewComment={this.addNewComment}
@@ -32,9 +51,16 @@ class App extends Component {
     );
   }
 
+  findPost = (event, searchText) => {
+    event.preventDefault();
+    console.log(searchText);
+    
+
+  }
 
   addNewComment = (event, targetUserName, comment) => {
       event.preventDefault();
+      console.log(event)
        const newData =  this.state.dummyData.map((item)=>{
           if(targetUserName === item.username) {
             return {...item, comments: [...item.comments, {text: comment, username: 'Chad'}]}
@@ -43,11 +69,12 @@ class App extends Component {
           }
         })
       this.setState({dummyData: newData})
+      localStorage.setItem('dummyData', JSON.stringify(this.state.dummyData))
   }
 
   changeHandler = (event)  => {
      this.setState({commentInput: event.target.value})
-     // console.log(event.target.value);
+     console.log(event.target.value);
   }
 }
 

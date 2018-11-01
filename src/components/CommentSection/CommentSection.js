@@ -1,18 +1,17 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import './commentSection.css'
+import StyledButton from '../../styles.js'
 class CommentSection extends React.Component {
   constructor(props) {
     super(props)
       this.state = {
         commentInput: ''
       }
-
   }
   
   changeHandler =(event) => {
     this.setState({commentInput: event.target.value})
-
   }
 
  addComment = (event) => {
@@ -29,16 +28,12 @@ class CommentSection extends React.Component {
       })}
       <form onSubmit={this.addComment}>
         <input value={this.state.commentInput} onChange={this.changeHandler}></input>
-        <button  onClick={this.addComment}></button>
+        <StyledButton type={'primary'}  onClick={this.addComment}>...</StyledButton>
       </form>
 
       </div>
       );
-
   }
-
-
-
 }
 
 
